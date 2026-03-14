@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMWExNzE0Ii8+CiAgPHRleHQgeD0iMTYiIHk9IjIyIiAKICAgIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCBzZXJpZiIgCiAgICBmb250LXNpemU9IjE2IiAKICAgIGZvbnQtc3R5bGU9Iml0YWxpYyIKICAgIGZvbnQtd2VpZ2h0PSIzMDAiCiAgICBmaWxsPSIjOWE3ZDRhIiAKICAgIHRleHQtYW5jaG9yPSJtaWRkbGUiCiAgICBsZXR0ZXItc3BhY2luZz0iMSI+SEY8L3RleHQ+Cjwvc3ZnPg==">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Public Speaking — Howard W. French</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inconsolata:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1714;
+    --cream: #f5f0e8;
+    --warm-white: #faf8f4;
+    --gold: #9a7d4a;
+    --gold-light: #c4a96e;
+    --rust: #8b3a2a;
+    --mid: #6b6560;
+    --rule: #d4cdc3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--ink);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4rem;
+    height: 64px;
+    background: rgba(250, 248, 244, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-logo {
+    font-family: 'Inconsolata', monospace;
+    font-weight: 300;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 9rem 5rem 4rem;
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 10% 90%, rgba(154, 125, 74, 0.18) 0%, transparent 55%),
+      radial-gradient(ellipse at 90% 10%, rgba(139, 58, 42, 0.1) 0%, transparent 50%);
+  }
+
+  .page-header-eyebrow {
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+    position: relative;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .page-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--cream);
+    letter-spacing: -0.01em;
+    position: relative;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+
+  .page-header h1 em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .page-header-sub {
+    margin-top: 1.25rem;
+    font-size: 0.95rem;
+    color: rgba(245, 240, 232, 0.5);
+    position: relative;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+
+  /* FILTER BAR */
+  .filter-bar {
+    padding: 1.5rem 5rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--warm-white);
+    position: sticky;
+    top: 64px;
+    z-index: 50;
+  }
+
+  .filter-label {
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-right: 0.5rem;
+  }
+
+  .filter-btn {
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border: 1px solid var(--rule);
+    background: none;
+    color: var(--mid);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--ink);
+    color: var(--cream);
+    border-color: var(--ink);
+  }
+
+  .video-count {
+    margin-left: auto;
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: var(--mid);
+  }
+
+  /* VIDEO GRID */
+  .videos-section {
+    padding: 4rem 5rem 6rem;
+  }
+
+  .videos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem 2rem;
+  }
+
+  /* VIDEO CARD */
+  .video-card {
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .video-card.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .video-thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: var(--ink);
+  }
+
+  .video-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease, opacity 0.3s ease;
+  }
+
+  .video-card:hover .video-thumb img {
+    transform: scale(1.04);
+  }
+
+  .play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(26, 23, 20, 0);
+    transition: background 0.3s ease;
+  }
+
+  .video-card:hover .play-overlay {
+    background: rgba(26, 23, 20, 0.45);
+  }
+
+  .play-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(154, 125, 74, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .video-card:hover .play-btn {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .play-btn svg {
+    width: 18px; height: 18px;
+    fill: white;
+    margin-left: 3px;
+  }
+
+  .video-meta {
+    padding: 1rem 0 0;
+  }
+
+  .video-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    transition: color 0.2s;
+  }
+
+  .video-card:hover .video-title {
+    color: var(--gold);
+  }
+
+  .video-channel {
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  /* LIGHTBOX */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 12, 10, 0.92);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .lightbox.open {
+    display: flex;
+  }
+
+  .lightbox-inner {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: -2.5rem;
+    right: 0;
+    background: none;
+    border: none;
+    color: rgba(245,240,232,0.6);
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .lightbox-close:hover { color: var(--cream); }
+
+  .lightbox-iframe-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #000;
+  }
+
+  .lightbox-iframe-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .lightbox-title {
+    margin-top: 1.25rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: rgba(245,240,232,0.7);
+    text-align: center;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    padding: 4rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    border-top: 1px solid rgba(245,240,232,0.08);
+  }
+
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: -0.01em;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+    list-style: none;
+  }
+
+  .footer-nav a {
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-nav a:hover { color: var(--gold-light); }
+
+  .footer-copy {
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: rgba(245,240,232,0.25);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 1024px) {
+    .videos-grid { grid-template-columns: repeat(2, 1fr); }
+    .videos-section, .page-header, .filter-bar { padding-left: 3rem; padding-right: 3rem; }
+  }
+
+  @media (max-width: 640px) {
+    .videos-grid { grid-template-columns: 1fr; }
+    .videos-section, .page-header { padding-left: 1.5rem; padding-right: 1.5rem; }
+    nav { padding: 0 1.5rem; }
+    .filter-bar { padding: 1rem 1.5rem; overflow-x: auto; }
+  }
+
+  /* SKELETON LOADER */
+  .video-title.loading {
+    position: relative;
+    overflow: hidden;
+    color: transparent;
+    background: var(--rule);
+    border-radius: 2px;
+    min-height: 1.2em;
+    width: 85%;
+    user-select: none;
+  }
+
+  .video-title.loading::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.6) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+  }
+
+  .video-channel.loading {
+    position: relative;
+    overflow: hidden;
+    color: transparent;
+    background: #e8e2d8;
+    border-radius: 2px;
+    min-height: 0.85em;
+    width: 55%;
+    margin-top: 0.35rem;
+    user-select: none;
+  }
+
+  .video-channel.loading::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.6) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite 0.2s;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+
+  /* =============================================
+     HAMBURGER MENU
+  ============================================= */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--ink);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
+  }
+
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0; right: 0;
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--rule);
+    padding: 1.5rem 2rem 2rem;
+    z-index: 99;
+    flex-direction: column;
+    gap: 0;
+    box-shadow: 0 8px 32px rgba(26,23,20,0.08);
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--rule);
+    transition: color 0.2s;
+  }
+
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--gold); }
+
+  /* =============================================
+     TABLET (768px - 1024px)
+  ============================================= */
+  @media (max-width: 1024px) {
+    nav { padding: 0 2.5rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 6rem 2.5rem 3.5rem; min-height: 60vh; }
+    .hero-right { padding: 3rem 2.5rem 4rem; }
+    .hero-photo-frame { max-width: 320px; }
+    .hero-right-quote { max-width: 100%; }
+    .about-strip { padding: 4rem 2.5rem; flex-direction: column; gap: 2rem; }
+    .books-section { padding: 4rem 2.5rem; }
+    .books-grid { grid-template-columns: repeat(2, 1fr); }
+    .writing-section { padding: 4rem 2.5rem; }
+    .columns-grid { grid-template-columns: repeat(2, 1fr); }
+    .speaking-section { padding: 4rem 2.5rem; flex-direction: column; gap: 2.5rem; }
+    .speaking-text { max-width: 100%; }
+    footer { padding: 3rem 2.5rem; }
+  }
+
+  /* =============================================
+     MOBILE (< 768px)
+  ============================================= */
+  @media (max-width: 767px) {
+    nav { padding: 0 1.5rem; }
+    .nav-hamburger { display: flex; }
+    .nav-links { display: none !important; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 5rem 1.5rem 3rem; min-height: auto; }
+    .hero-name { font-size: clamp(2.8rem, 12vw, 4rem); }
+    .hero-descriptor { font-size: 0.88rem; }
+    .hero-cta { flex-direction: column; gap: 0.75rem; }
+    .btn-primary, .btn-ghost { text-align: center; }
+    .hero-right { padding: 2.5rem 1.5rem 3.5rem; }
+    .hero-photo-frame { max-width: 260px; }
+    .about-strip { padding: 3rem 1.5rem; flex-direction: column; }
+    .about-credentials { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .credential-number { font-size: 2rem; }
+    .books-section { padding: 3rem 1.5rem; }
+    .books-grid { grid-template-columns: 1fr; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; margin-bottom: 2rem; }
+    .writing-section { padding: 3rem 1.5rem; }
+    .columns-grid { grid-template-columns: 1fr; }
+    .speaking-section { padding: 3rem 1.5rem; flex-direction: column; gap: 2rem; }
+    .speaking-heading { font-size: 1.8rem; }
+    footer { padding: 2.5rem 1.5rem; }
+    .footer-nav { gap: 0.5rem 1.25rem; }
+  }
+
+  @media (max-width: 1024px) {
+    .videos-section { padding: 3rem 2.5rem 5rem; }
+    .videos-grid { grid-template-columns: repeat(2, 1fr); }
+    .page-header { padding: 8rem 2.5rem 4rem; }
+    .filter-bar { padding: 1.25rem 2.5rem; }
+  }
+  @media (max-width: 767px) {
+    .videos-section { padding: 2.5rem 1.5rem 4rem; }
+    .videos-grid { grid-template-columns: 1fr; }
+    .page-header { padding: 7rem 1.5rem 3rem; }
+    .filter-bar { padding: 1rem 1.5rem; overflow-x: auto; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="howard-french-homepage.html" class="nav-logo">Howard W. French</a>
+  <ul class="nav-links">
+    <li><a href="howard-french-about.html">About</a></li>
+    <li><a href="howard-french-homepage.html#books">Books</a></li>
+    <li><a href="howard-french-books.html">Shop</a></li>
+    <li><a href="howard-french-homepage.html#writing">Writing</a></li>
+    <li><a href="#" class="active">Public Speaking</a></li>
+    <li><a href="#" onclick="event.preventDefault();document.getElementById('contactModal').style.display='flex'">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="howard-french-about.html">About</a>
+    <a href="howard-french-homepage.html#books">Books</a>
+    <a href="howard-french-books.html">Shop</a>
+    <a href="howard-french-homepage.html#writing">Writing</a>
+    <a href="#" class="active">Videos</a>
+    <a href="#" onclick="event.preventDefault();document.getElementById('contactModal').style.display='flex'">Contact</a>
+</div>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="page-header-eyebrow">Howard W. French</div>
+  <h1>Public <em>Speaking</em></h1>
+  <p class="page-header-sub">Lectures, panel discussions, interviews, and conversations on Howard's work involving Africa, Asia, global history and journalism. Click any video to watch.</p>
+</header>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <span class="filter-label">Show</span>
+  <button class="filter-btn active" data-filter="all">All</button>
+  <span class="video-count" id="videoCount">17 videos</span>
+</div>
+
+<!-- VIDEOS GRID -->
+<section class="videos-section">
+  <div class="videos-grid" id="videosGrid">
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Howard W. French</div>
+  <ul class="footer-nav">
+    <li><a href="howard-french-about.html">About</a></li>
+    <li><a href="howard-french-homepage.html#books">Books</a></li>
+    <li><a href="howard-french-books.html">Shop</a></li>
+    <li><a href="https://foreignpolicy.com/author/howard-w-french/" target="_blank" rel="noopener">Weekly Column</a></li>
+    <li><a href="#">Videos</a></li>
+    <li><a href="#" onclick="event.preventDefault();document.getElementById('contactModal').style.display='flex'">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Howard W. French · All rights reserved</div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5">
+        <line x1="1" y1="1" x2="9" y2="9"/><line x1="9" y1="1" x2="1" y2="9"/>
+      </svg>
+      Close
+    </button>
+    <div class="lightbox-iframe-wrap" id="lightboxFrame"></div>
+    <p class="lightbox-title" id="lightboxTitle"></p>
+  </div>
+</div>
+
+<!-- CONTACT MODAL -->
+<div id="contactModal" style="display:none; position:fixed; inset:0; background:rgba(26,23,20,0.75); z-index:1000; align-items:center; justify-content:center; padding:1rem;">
+  <div style="background:var(--warm-white); max-width:520px; width:100%; padding:3rem; position:relative; font-family:'Libre Baskerville',Georgia,serif;">
+    <button onclick="document.getElementById('contactModal').style.display='none'" style="position:absolute; top:1.25rem; right:1.5rem; background:none; border:none; cursor:pointer; font-size:1.4rem; color:var(--mid); line-height:1;">×</button>
+    <div style="font-family:'Inconsolata',monospace; font-size:0.7rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-bottom:0.75rem;">Contact</div>
+    <h2 style="font-family:'Cormorant Garamond',serif; font-weight:300; font-size:2rem; margin-bottom:2rem; color:var(--ink);">Get in Touch</h2>
+    <div style="display:flex; flex-direction:column; gap:1.25rem;">
+      <div>
+        <label style="display:block; font-family:'Inconsolata',monospace; font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--mid); margin-bottom:0.4rem;">Name</label>
+        <input id="cm-name" type="text" style="width:100%; padding:0.65rem 0.75rem; border:1px solid var(--rule); background:var(--cream); font-family:'Libre Baskerville',Georgia,serif; font-size:0.9rem; color:var(--ink); outline:none;">
+      </div>
+      <div>
+        <label style="display:block; font-family:'Inconsolata',monospace; font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--mid); margin-bottom:0.4rem;">Email Address</label>
+        <input id="cm-email" type="email" style="width:100%; padding:0.65rem 0.75rem; border:1px solid var(--rule); background:var(--cream); font-family:'Libre Baskerville',Georgia,serif; font-size:0.9rem; color:var(--ink); outline:none;">
+      </div>
+      <div>
+        <label style="display:block; font-family:'Inconsolata',monospace; font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--mid); margin-bottom:0.4rem;">Subject</label>
+        <input id="cm-subject" type="text" style="width:100%; padding:0.65rem 0.75rem; border:1px solid var(--rule); background:var(--cream); font-family:'Libre Baskerville',Georgia,serif; font-size:0.9rem; color:var(--ink); outline:none;">
+      </div>
+      <div>
+        <label style="display:block; font-family:'Inconsolata',monospace; font-size:0.68rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--mid); margin-bottom:0.4rem;">Message</label>
+        <textarea id="cm-message" rows="5" style="width:100%; padding:0.65rem 0.75rem; border:1px solid var(--rule); background:var(--cream); font-family:'Libre Baskerville',Georgia,serif; font-size:0.9rem; color:var(--ink); outline:none; resize:vertical;"></textarea>
+      </div>
+      <button onclick="sendContactInquiry()" style="margin-top:0.5rem; padding:0.75rem 2rem; background:var(--ink); color:var(--cream); font-family:'Inconsolata',monospace; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; border:none; cursor:pointer; align-self:flex-start;">Send</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const _r = ['hof','ren','ch@','gma','il.','com'].join('');
+
+  const videos = [
+    { id: '7svWYTgSIPY' },
+    { id: 'w-GdSEW2lW8' },
+    { id: 'gn9L9RHB8IA' },
+    { id: 'dA_0htkpuoM' },
+    { id: 'raaoHJONfGo' },
+    { id: 'Hh7oyy8W86g' },
+    { id: 'egGRksfg2NY' },
+    { id: 'JSCrqK5wFaM' },
+    { id: 'KO9uryosDpI' },
+    { id: 'SIuJsk0axQc' },
+    { id: 'BtpiV_iCJYg' },
+    { id: 'NXJEVoaHoHU' },
+    { id: '6YE_Eag4ZgU' },
+    { id: '_0jX0N0FrkY' },
+    { id: 'lBis9XJJk90' },
+    { id: 'cgNOkyZXD0Q' },
+    { id: 'j4JgpisKm74' },
+  ];
+
+  // Build grid
+  const grid = document.getElementById('videosGrid');
+
+  videos.forEach((v, i) => {
+    const card = document.createElement('div');
+    card.className = 'video-card';
+    card.style.transitionDelay = `${(i % 3) * 0.1}s`;
+    card.innerHTML = `
+      <div class="video-thumb">
+        <img 
+          src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg" 
+          alt="Video thumbnail"
+          loading="lazy"
+        >
+        <div class="play-overlay">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="video-meta">
+        <div class="video-title loading" id="title-${v.id}">&nbsp;</div>
+        <div class="video-channel loading" id="channel-${v.id}">&nbsp;</div>
+      </div>
+    `;
+    card.addEventListener('click', () => openLightbox(v.id, document.getElementById('title-'+v.id).textContent));
+    grid.appendChild(card);
+
+    // Fetch title via oEmbed (no API key needed)
+    fetch(`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${v.id}&format=json`)
+      .then(r => r.json())
+      .then(data => {
+        const titleEl = document.getElementById('title-'+v.id);
+        const channelEl = document.getElementById('channel-'+v.id);
+        titleEl.classList.remove('loading');
+        channelEl.classList.remove('loading');
+        titleEl.textContent = data.title || 'Watch Video';
+        channelEl.textContent = data.author_name || '';
+      })
+      .catch(() => {
+        const titleEl = document.getElementById('title-'+v.id);
+        const channelEl = document.getElementById('channel-'+v.id);
+        titleEl.classList.remove('loading');
+        channelEl.classList.remove('loading');
+        titleEl.textContent = 'Watch Video';
+        channelEl.textContent = '';
+      });
+  });
+
+  // Mobile hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.video-card').forEach(el => observer.observe(el));
+
+  // Lightbox
+  function openLightbox(id, title) {
+    document.getElementById('lightboxFrame').innerHTML = 
+      `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+    document.getElementById('lightboxTitle').textContent = title !== 'Loading…' ? title : '';
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.getElementById('lightboxFrame').innerHTML = '';
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // Contact modal
+  function sendContactInquiry() {
+    const name    = document.getElementById('cm-name').value.trim();
+    const email   = document.getElementById('cm-email').value.trim();
+    const subject = document.getElementById('cm-subject').value.trim();
+    const message = document.getElementById('cm-message').value.trim();
+    if (!name || !email || !subject || !message) { alert('Please fill in all fields.'); return; }
+    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+    window.location.href = `mailto:${_r}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+
+  document.getElementById('contactModal').addEventListener('click', function(e) {
+    if (e.target === this) this.style.display = 'none';
+  });
+</script>
+</body>
+</html>
