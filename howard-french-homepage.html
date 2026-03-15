@@ -736,7 +736,7 @@
     .hero-right { padding: 3rem 2.5rem 4rem; }
     .hero-photo-frame { max-width: 320px; }
     .hero-right-quote { max-width: 100%; }
-    .about-strip { padding: 4rem 2.5rem; flex-direction: column; gap: 2rem; }
+    .about-strip { padding: 4rem 2.5rem; grid-template-columns: 1fr; gap: 2rem; }
     .books-section { padding: 4rem 2.5rem; }
     .books-grid { grid-template-columns: repeat(2, 1fr); }
     .writing-section { padding: 4rem 2.5rem; }
@@ -761,9 +761,11 @@
     .btn-primary, .btn-ghost { text-align: center; }
     .hero-right { padding: 2.5rem 1.5rem 3.5rem; }
     .hero-photo-frame { max-width: 260px; }
-    .about-strip { padding: 3rem 1.5rem; flex-direction: column; }
-    .about-credentials { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .credential-number { font-size: 2rem; }
+    .about-strip { padding: 3rem 1.5rem; grid-template-columns: 1fr; gap: 1.5rem; }
+    .about-text p { font-size: 1rem; line-height: 1.8; }
+    .about-credentials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 1.5rem; }
+    .credential-number { font-size: 1.9rem; }
+    .credential-label { font-size: 0.6rem; letter-spacing: 0.1em; }
     .books-section { padding: 3rem 1.5rem; }
     .books-grid { grid-template-columns: 1fr; }
     .section-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; margin-bottom: 2rem; }
