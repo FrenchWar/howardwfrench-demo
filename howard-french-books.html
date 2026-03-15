@@ -566,6 +566,30 @@
     .book-actions { flex-direction: column; gap: 0.75rem; }
     .buy-btn { text-align: center; justify-content: center; }
     .page-header { padding: 7rem 1.5rem 3rem; }
+
+    .book-pull-quote {
+      max-width: 100%;
+      padding: 0.85rem 0 0.85rem 1rem;
+      margin: 0 0 1.25rem;
+    }
+    .book-pull-quote p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .book-pull-quote cite {
+      font-size: 0.63rem;
+      letter-spacing: 0.08em;
+    }
+    .book-accolade {
+      font-size: 0.67rem;
+      letter-spacing: 0.06em;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .book-synopsis-source {
+      font-size: 0.62rem;
+      letter-spacing: 0.07em;
+    }
   }
 
 </style>
@@ -633,11 +657,11 @@
         </blockquote>
         <p class="book-accolade">&#9733; Named one of the 20 best non-fiction books of 2025 by <em>Publishers Weekly</em></p>
         <div class="book-actions">
-          <a href="https://www.amazon.com/Second-Emancipation-Pan-Africanism-Global-Blackness/dp/1324036036" target="_blank" rel="noopener" class="buy-btn buy-btn-primary">
+          <a href="https://www.amazon.com/Second-Emancipation-Nkrumah-Pan-Africanism-Blackness/dp/1324092459/ref=sr_1_1?crid=11ASVWJOXR0YA&dib=eyJ2IjoiMSJ9.s2n66A7RBpdIdowj0u_v7Xr_7ZpVwl27tzD-iTbk2SLSx1OD7VZXtp41X3bxpmB1zTnNPaeASrCItmcfiBeW3BAHN8BGEUyxdo6pp2fvGgB9YvJdWqvaroxyozQhIBJm_Y2qxG8Hni4AwBXAcC3i-CjIe3M6rOrwb7Mcu12Y_9bH6gl_FWxiti9cWb42ZTvslL1ZThLk8cwojset2odcZb6In2VRcai4oo6nxx8PYHU.H7Gc6FoEN0uoXtYswPNEacuFu74Q0lS7YN5goyZi25U&dib_tag=se&keywords=second+emancipation+book&qid=1773546062&sprefix=second+ema%2Caps%2C91&sr=8-1" target="_blank" rel="noopener" class="buy-btn buy-btn-primary">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
             Buy on Amazon
           </a>
-          <a href="https://bookshop.org/p/books/the-second-emancipation/" target="_blank" rel="noopener" class="buy-btn buy-btn-ghost">
+          <a href="https://bookshop.org/p/books/the-second-emancipation-nkrumah-pan-africanism-and-global-blackness-at-high-tide-howard-w-french/5bfbaa2889ca3813?ean=9781324092452&next=t" target="_blank" rel="noopener" class="buy-btn buy-btn-ghost">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
             Bookshop.org
           </a>
@@ -645,7 +669,7 @@
       </div>
     </article>
     <!-- BOOK: Born in Blackness -->
-    <article class="book-entry reveal" style="transition-delay:0.1s">
+    <article id="born-in-blackness" class="book-entry reveal" style="transition-delay:0.1s">
       <div class="book-cover-col">
         <div class="book-cover-wrap">
           <span class="book-badge">Award-Winning</span>
@@ -666,11 +690,11 @@
         <span class="book-synopsis-source">— W. W. Norton &amp; Company</span>
         <p class="book-accolade">&#9733; A Best Book of the Year &mdash; <em>Foreign Affairs</em> &amp; <em>Financial Times</em> &middot; Winner, MAAH Stone Book Prize &amp; Hurston/Wright Legacy Award</p>
         <div class="book-actions">
-          <a href="https://www.amazon.com/Born-Blackness-Africa-Africans-Making/dp/1631498892" target="_blank" rel="noopener" class="buy-btn buy-btn-primary">
+          <a href="https://www.amazon.com/Born-Blackness-Africa-Africans-Making/dp/1631495828/ref=tmm_hrd_swatch_0?_encoding=UTF8&dib_tag=se&dib=eyJ2IjoiMSJ9.5m0leRCQSP1vCeoQEe4CpYb1mwLicM8b6RQw-FtwkLsPzZczVBxZOKpDmxrvZp0YrUH8c1Ws8QHfZfyFHqMz3XZaHdWKkkKv4X1-06Pxm47dbFsQ2Yi6amaG_E5ilz_E.TnEmGSeDm0VS95J2wh-fA-CXn4E8tli-P2Anjrv-jeI&qid=1773546184&sr=8-1" target="_blank" rel="noopener" class="buy-btn buy-btn-primary">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
             Buy on Amazon
           </a>
-          <a href="https://bookshop.org/p/books/born-in-blackness/" target="_blank" rel="noopener" class="buy-btn buy-btn-ghost">
+          <a href="https://bookshop.org/p/books/born-in-blackness-africa-africans-and-the-making-of-the-modern-world-1471-to-the-second-world-war-howard-w-french/e36690f241100a87?ean=9781324092407&next=t" target="_blank" rel="noopener" class="buy-btn buy-btn-ghost">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
             Bookshop.org
           </a>
@@ -678,7 +702,7 @@
       </div>
     </article>
     <!-- BOOK: China's Second Continent -->
-    <article class="book-entry reveal" style="transition-delay:0.2s">
+    <article id="chinas-second-continent" class="book-entry reveal" style="transition-delay:0.2s">
       <div class="book-cover-col">
         <div class="book-cover-wrap">
           
@@ -699,11 +723,11 @@
         <span class="book-synopsis-source">— Alfred A. Knopf</span>
         <p class="book-accolade">&#9733; Best Books of 2014 &mdash; <em>The Economist</em>, <em>The Guardian</em> &amp; <em>Foreign Affairs</em> &middot; <em>New York Times</em> Notable Book</p>
         <div class="book-actions">
-          <a href="https://www.amazon.com/Chinas-Second-Continent-Migrants-Building/dp/0307956989" target="_blank" rel="noopener" class="buy-btn buy-btn-primary">
+          <a href="https://www.amazon.com/Chinas-Second-Continent-Migrants-Building/dp/0307946657/ref=sr_1_2?crid=3FBJ73G03FMN9&dib=eyJ2IjoiMSJ9.5m0leRCQSP1vCeoQEe4CpYb1mwLicM8b6RQw-FtwkLsPzZczVBxZOKpDmxrvZp0YrUH8c1Ws8QHfZfyFHqMz3XZaHdWKkkKv4X1-06Pxm47dbFsQ2Yi6amaG_E5ilz_E.TnEmGSeDm0VS95J2wh-fA-CXn4E8tli-P2Anjrv-jeI&dib_tag=se&keywords=born+in+blackness+howard+french&qid=1773546245&sprefix=born+in+blackness+howard+french%2Caps%2C95&sr=8-2" target="_blank" rel="noopener" class="buy-btn buy-btn-primary">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
             Buy on Amazon
           </a>
-          <a href="https://bookshop.org/p/books/china-s-second-continent/" target="_blank" rel="noopener" class="buy-btn buy-btn-ghost">
+          <a href="https://bookshop.org/p/books/china-s-second-continent-how-a-million-migrants-are-building-a-new-empire-in-africa-howard-w-french/404d3625a42aff15?ean=9780307946652&next=t" target="_blank" rel="noopener" class="buy-btn buy-btn-ghost">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
             Bookshop.org
           </a>
@@ -736,11 +760,11 @@
         </blockquote>
         <p class="book-accolade">&#9733; Notable Nonfiction &mdash; <em>The Guardian</em></p>
         <div class="book-actions">
-          <a href="https://www.amazon.com/Everything-Under-Heavens-Chinas-Global/dp/0385353057" target="_blank" rel="noopener" class="buy-btn buy-btn-primary">
+          <a href="https://www.amazon.com/dp/B01HA4JUKE/?bestFormat=true&k=everything%20under%20the%20heavens&ref_=nb_sb_ss_w_scx-ent-bk-ww_k2_1_21_de&crid=3G0AVYD4TUQE3&sprefix=everhting%20under%20the%20" target="_blank" rel="noopener" class="buy-btn buy-btn-primary">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
             Buy on Amazon
           </a>
-          <a href="https://bookshop.org/p/books/everything-under-the-heavens/" target="_blank" rel="noopener" class="buy-btn buy-btn-ghost">
+          <a href="https://bookshop.org/p/books/everything-under-the-heavens-how-the-past-helps-shape-china-s-push-for-global-power-howard-w-french/63d01e2c05cddefe?ean=9780804172455&next=t" target="_blank" rel="noopener" class="buy-btn buy-btn-ghost">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
             Bookshop.org
           </a>
@@ -769,11 +793,11 @@
         <span class="book-synopsis-source">— Alfred A. Knopf</span>
         <p class="book-accolade">&#9733; Winner, American Library Association Black Caucus Award for Non-Fiction &middot; Winner, Hurston/Wright Legacy Award</p>
         <div class="book-actions">
-          <a href="https://www.amazon.com/Continent-Taking-Tragedy-Hope-Africa/dp/1400031079" target="_blank" rel="noopener" class="buy-btn buy-btn-primary">
+          <a href="https://www.amazon.com/Continent-Taking-Tragedy-Hope-Africa/dp/0375414614/ref=tmm_hrd_swatch_0" target="_blank" rel="noopener" class="buy-btn buy-btn-primary">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
             Buy on Amazon
           </a>
-          <a href="https://bookshop.org/p/books/a-continent-for-the-taking/" target="_blank" rel="noopener" class="buy-btn buy-btn-ghost">
+          <a href="https://bookshop.org/p/books/a-continent-for-the-taking-the-tragedy-and-hope-of-africa-howard-w-french/26b58cad4bc75c8c?ean=9781400030279&next=t" target="_blank" rel="noopener" class="buy-btn buy-btn-ghost">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
             Bookshop.org
           </a>
@@ -809,13 +833,9 @@
           <cite>Teju Cole, <em>Known and Strange Things</em></cite>
         </blockquote>
         <div class="book-actions">
-          <a href="https://www.amazon.com/Disappearing-Shanghai-Photographs-Poems-Intimate/dp/1931907420" target="_blank" rel="noopener" class="buy-btn buy-btn-primary">
+          <a href="https://www.amazon.com/Disappearing-Shanghai-Photographs-Poems-Intimate/dp/1931907811/ref=sr_1_1?crid=26TK6X3DBBZLK&dib=eyJ2IjoiMSJ9.06spNbl6CVF8hsitAdsuRWWR_OhS2LgFYtNqnjmy75Rfu2vuzinXo52yRLGctFnK8TeEXbzagO5UFCCmwakqIgvRmeHK6TUUnTN27SPZk5pT2WvRxK3UmrGR2f-2dII_0V1iP_C47duwnK0ACIAu0sQ7iTUm5lpotMA5roOKwctPD7N5ygD3qc30KbbTe0C5Z8ivzFnbHVrcLQh8gl_rMEZmEtnNNUeauUM2-fXU_74.zWwPqjFoAk6koUhhNEUe5rKaV8I4ZNnbyDtf_IyML-0&dib_tag=se&keywords=disappearing+shanghai&qid=1773546381&s=books&sprefix=disappearing+shanghai%2Cstripbooks%2C83&sr=1-1" target="_blank" rel="noopener" class="buy-btn buy-btn-primary">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
             Buy on Amazon
-          </a>
-          <a href="https://bookshop.org/p/books/disappearing-shanghai/" target="_blank" rel="noopener" class="buy-btn buy-btn-ghost">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
-            Bookshop.org
           </a>
         </div>
       </div>
