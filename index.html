@@ -454,6 +454,71 @@
     gap: 0;
   }
 
+
+  .tweet-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    
+    padding: 0.35rem 0.8rem;
+    background: transparent;
+    border: 1px solid rgba(245,240,232,0.15);
+    color: rgba(245,240,232,0.4);
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+    border-radius: 2px;
+  }
+  .tweet-btn:hover {
+    border-color: rgba(245,240,232,0.5);
+    color: rgba(245,240,232,0.8);
+  }
+  .tweet-btn svg {
+    width: 10px;
+    height: 10px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+
+  .col-featured-label {
+    font-family: 'Inconsolata', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .column-item--featured {
+    grid-column: 1 / -1;
+    border-right: none;
+    border-bottom: 1px solid rgba(245,240,232,0.08);
+    padding: 2.5rem;
+  }
+
+  .column-item--featured .col-headline {
+    font-size: 1.7rem;
+    line-height: 1.3;
+    max-width: 640px;
+  }
+
+  .share-btns {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+  }
+
+  .fb-btn svg path {
+    fill: currentColor;
+  }
+
   .column-item {
     padding: 2rem 2.5rem;
     border-bottom: 1px solid rgba(245,240,232,0.08);
@@ -913,25 +978,36 @@
     <a href="https://foreignpolicy.com/author/howard-w-french/" target="_blank" rel="noopener" class="section-link" style="color: var(--gold-light)">Weekly Columns →</a>
   </div>
   <div class="columns-grid">
-    <a class="column-item reveal" href="https://foreignpolicy.com/2026/03/05/iran-war-us-american-rhetoric-trump/" target="_blank" rel="noopener">
+    <a class="column-item column-item--featured reveal" href="https://foreignpolicy.com/2026/03/12/trump-global-order-us-iran-power/" target="_blank" rel="noopener">
+      <div class="col-featured-label">Latest</div>
+      <div class="col-outlet">Foreign Policy</div>
+      <div class="col-headline">What Trump’s Last-Gasp Foreign Policy Means for the Global Order</div>
+      <div class="col-date">March 12, 2026</div>
+      <div class="share-btns"><button class="tweet-btn" onclick="event.preventDefault();event.stopPropagation();window.open('https://twitter.com/intent/tweet?text=%22What%20Trump%E2%80%99s%20Last-Gasp%20Foreign%20Policy%20Means%20for%20the%20Global%20Order%22%20by%20%40hofrench&url=https%3A//foreignpolicy.com/2026/03/12/trump-global-order-us-iran-power/','_blank','noopener')"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Share</button><button class="tweet-btn fb-btn" onclick="event.preventDefault();event.stopPropagation();window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A//foreignpolicy.com/2026/03/12/trump-global-order-us-iran-power/','_blank','noopener')"><svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>Share</button></div>
+    </a>
+    <a class="column-item reveal" style="transition-delay:0.1s" href="https://foreignpolicy.com/2026/03/05/iran-war-us-american-rhetoric-trump/" target="_blank" rel="noopener">
       <div class="col-outlet">Foreign Policy</div>
       <div class="col-headline">The Reductive Rhetoric of the Iran War</div>
       <div class="col-date">March 5, 2026</div>
+      <div class="share-btns"><button class="tweet-btn" onclick="event.preventDefault();event.stopPropagation();window.open('https://twitter.com/intent/tweet?text=%22The%20Reductive%20Rhetoric%20of%20the%20Iran%20War%22%20by%20%40hofrench&url=https%3A//foreignpolicy.com/2026/03/05/iran-war-us-american-rhetoric-trump/','_blank','noopener')"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Share</button><button class="tweet-btn fb-btn" onclick="event.preventDefault();event.stopPropagation();window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A//foreignpolicy.com/2026/03/05/iran-war-us-american-rhetoric-trump/','_blank','noopener')"><svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>Share</button></div>
     </a>
-    <a class="column-item reveal" href="https://foreignpolicy.com/2026/02/26/us-cuba-history-americas-trump/" target="_blank" rel="noopener" style="transition-delay:0.1s">
+    <a class="column-item reveal" style="transition-delay:0.2s" href="https://foreignpolicy.com/2026/02/26/us-cuba-history-americas-trump/" target="_blank" rel="noopener">
       <div class="col-outlet">Foreign Policy</div>
       <div class="col-headline">Why Is America So Obsessed With Cuba?</div>
       <div class="col-date">February 26, 2026</div>
+      <div class="share-btns"><button class="tweet-btn" onclick="event.preventDefault();event.stopPropagation();window.open('https://twitter.com/intent/tweet?text=%22Why%20Is%20America%20So%20Obsessed%20With%20Cuba%3F%22%20by%20%40hofrench&url=https%3A//foreignpolicy.com/2026/02/26/us-cuba-history-americas-trump/','_blank','noopener')"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Share</button><button class="tweet-btn fb-btn" onclick="event.preventDefault();event.stopPropagation();window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A//foreignpolicy.com/2026/02/26/us-cuba-history-americas-trump/','_blank','noopener')"><svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>Share</button></div>
     </a>
-    <a class="column-item reveal" href="https://foreignpolicy.com/2026/01/23/trump-greenland-davos-history-soviet-invasion-czechoslovakia-1968/?utm_content=gifting&tpcc=gifting_article&gifting_article=dHJ1bXAtZ3JlZW5sYW5kLWRhdm9zLWhpc3Rvcnktc292aWV0LWludmFzaW9uLWN6ZWNob3Nsb3Zha2lhLTE5Njg=&pid=PNINzQGOyq8waqm" target="_blank" rel="noopener" style="transition-delay:0.2s">
+    <a class="column-item reveal" style="transition-delay:0.3s" href="https://foreignpolicy.com/2026/01/23/trump-greenland-davos-history-soviet-invasion-czechoslovakia-1968/?utm_content=gifting&tpcc=gifting_article&gifting_article=dHJ1bXAtZ3JlZW5sYW5kLWRhdm9zLWhpc3Rvcnktc292aWV0LWludmFzaW9uLWN6ZWNob3Nsb3Zha2lhLTE5Njg=&pid=PNINzQGOyq8waqm" target="_blank" rel="noopener">
       <div class="col-outlet">Foreign Policy</div>
-      <div class="col-headline">The Soviet Lessons for Trump's Greenland Gambit</div>
+      <div class="col-headline">The Soviet Lessons for Trump’s Greenland Gambit</div>
       <div class="col-date">January 23, 2026</div>
+      <div class="share-btns"><button class="tweet-btn" onclick="event.preventDefault();event.stopPropagation();window.open('https://twitter.com/intent/tweet?text=%22The%20Soviet%20Lessons%20for%20Trump%E2%80%99s%20Greenland%20Gambit%22%20by%20%40hofrench&url=https%3A//foreignpolicy.com/2026/01/23/trump-greenland-davos-history-soviet-invasion-czechoslovakia-1968/','_blank','noopener')"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Share</button><button class="tweet-btn fb-btn" onclick="event.preventDefault();event.stopPropagation();window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A//foreignpolicy.com/2026/01/23/trump-greenland-davos-history-soviet-invasion-czechoslovakia-1968/','_blank','noopener')"><svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>Share</button></div>
     </a>
-    <a class="column-item reveal" href="https://foreignpolicy.com/2025/12/18/benin-failed-coup-africa-nigeria-geopolitics/" target="_blank" rel="noopener" style="transition-delay:0.3s">
+    <a class="column-item reveal" style="transition-delay:0.4s" href="https://foreignpolicy.com/2025/12/18/benin-failed-coup-africa-nigeria-geopolitics/" target="_blank" rel="noopener">
       <div class="col-outlet">Foreign Policy</div>
-      <div class="col-headline">Benin's Failed Coup Reveals Deepening Fault Lines in Africa</div>
+      <div class="col-headline">Benin’s Failed Coup Reveals Deepening Fault Lines in Africa</div>
       <div class="col-date">December 18, 2025</div>
+      <div class="share-btns"><button class="tweet-btn" onclick="event.preventDefault();event.stopPropagation();window.open('https://twitter.com/intent/tweet?text=%22Benin%E2%80%99s%20Failed%20Coup%20Reveals%20Deepening%20Fault%20Lines%20in%20Africa%22%20by%20%40hofrench&url=https%3A//foreignpolicy.com/2025/12/18/benin-failed-coup-africa-nigeria-geopolitics/','_blank','noopener')"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.254 5.622 5.91-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Share</button><button class="tweet-btn fb-btn" onclick="event.preventDefault();event.stopPropagation();window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A//foreignpolicy.com/2025/12/18/benin-failed-coup-africa-nigeria-geopolitics/','_blank','noopener')"><svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>Share</button></div>
     </a>
   </div>
 </section>
