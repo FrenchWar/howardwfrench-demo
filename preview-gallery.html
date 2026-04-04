@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Preview Gallery</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f0f13;
+      color: #e0e0e0;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      padding: 32px 40px;
+      border-bottom: 1px solid #2a2a4a;
+    }
+
+    header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    header p {
+      color: #8888aa;
+      font-size: 14px;
+    }
+
+    .section {
+      padding: 40px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 22px;
+      border-radius: 2px;
+    }
+
+    .howard .section-title::before { background: #6c63ff; }
+    .henry .section-title::before { background: #00c9a7; }
+
+    .section-subtitle {
+      color: #888;
+      font-size: 13px;
+      margin-bottom: 28px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: #16161e;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #2a2a3a;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+    }
+
+    .howard .card:hover { border-color: #6c63ff55; }
+    .henry .card:hover { border-color: #00c9a755; }
+
+    .preview-wrap {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #1e1e28;
+    }
+
+    .preview-wrap iframe {
+      width: 1280px;
+      height: 900px;
+      border: none;
+      transform: scale(0.296);
+      transform-origin: top left;
+      pointer-events: none;
+    }
+
+    .preview-overlay {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+    }
+
+    .card-footer {
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #2a2a3a;
+    }
+
+    .card-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: #ddd;
+    }
+
+    .card-badge {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    .howard .card-badge { background: #6c63ff22; color: #9d97ff; }
+    .henry .card-badge { background: #00c9a722; color: #00e8c3; }
+
+    .open-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #666;
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .open-btn:hover { background: #2a2a3a; color: #aaa; }
+
+    .divider {
+      height: 1px;
+      background: #2a2a3a;
+      margin: 0 40px;
+    }
+
+    .modal-bg {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-bg.active { display: flex; }
+
+    .modal {
+      background: #16161e;
+      border-radius: 16px;
+      width: 90vw;
+      height: 88vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #3a3a5a;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+    }
+
+    .modal-header {
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #2a2a3a;
+      background: #1a1a28;
+    }
+
+    .modal-title { font-size: 14px; color: #ccc; font-weight: 500; }
+
+    .modal-close {
+      background: #333;
+      border: none;
+      color: #aaa;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+
+    .modal-close:hover { background: #555; color: #fff; }
+
+    .modal iframe {
+      flex: 1;
+      width: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🌐 Website Preview Gallery</h1>
+  <p>All HTML pages · Howard French's Website &amp; Henry French's Website · Click any card to expand</p>
+</header>
+
+<!-- Howard French -->
+<div class="section howard">
+  <div class="section-title">Howard French's Website</div>
+  <div class="section-subtitle">5 pages</div>
+  <div class="grid" id="howard-grid"></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- Henry French -->
+<div class="section henry">
+  <div class="section-title">Henry French's Website</div>
+  <div class="section-subtitle">6 pages</div>
+  <div class="grid" id="henry-grid"></div>
+</div>
+
+<!-- Modal -->
+<div class="modal-bg" id="modal" onclick="closeModal(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title" id="modal-title">Preview</span>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <iframe id="modal-iframe" src=""></iframe>
+  </div>
+</div>
+
+<script>
+  const howard = [
+    { name: "index.html", label: "Index", path: "/sessions/eloquent-practical-carson/mnt/Howard French's Website/index.html" },
+    { name: "howard-french-homepage.html", label: "Homepage", path: "/sessions/eloquent-practical-carson/mnt/Howard French's Website/howard-french-homepage.html" },
+    { name: "howard-french-about.html", label: "About", path: "/sessions/eloquent-practical-carson/mnt/Howard French's Website/howard-french-about.html" },
+    { name: "howard-french-books.html", label: "Books", path: "/sessions/eloquent-practical-carson/mnt/Howard French's Website/howard-french-books.html" },
+    { name: "howard-french-videos.html", label: "Videos", path: "/sessions/eloquent-practical-carson/mnt/Howard French's Website/howard-french-videos.html" },
+  ];
+
+  const henry = [
+    { name: "index.html", label: "Index", path: "/sessions/eloquent-practical-carson/mnt/Henry French's Website/index.html" },
+    { name: "henry-french-final.html", label: "Final", path: "/sessions/eloquent-practical-carson/mnt/Henry French's Website/henry-french-final.html" },
+    { name: "about.html", label: "About", path: "/sessions/eloquent-practical-carson/mnt/Henry French's Website/about.html" },
+    { name: "work.html", label: "Work", path: "/sessions/eloquent-practical-carson/mnt/Henry French's Website/work.html" },
+    { name: "portfolio.html", label: "Portfolio", path: "/sessions/eloquent-practical-carson/mnt/Henry French's Website/portfolio.html" },
+    { name: "contact.html", label: "Contact", path: "/sessions/eloquent-practical-carson/mnt/Henry French's Website/contact.html" },
+  ];
+
+  function makeCard(page, badgeClass, badgeLabel) {
+    const div = document.createElement('div');
+    div.className = 'card';
+    div.innerHTML = `
+      <div class="preview-wrap">
+        <iframe src="file://${page.path}" sandbox="allow-same-origin allow-scripts" loading="lazy"></iframe>
+        <div class="preview-overlay" onclick="openModal('file://${page.path}', '${page.name}')"></div>
+      </div>
+      <div class="card-footer">
+        <span class="card-name">${page.label} &mdash; <span style="color:#666;font-size:12px">${page.name}</span></span>
+        <span class="card-badge">${badgeLabel}</span>
+      </div>
+    `;
+    return div;
+  }
+
+  const howardGrid = document.getElementById('howard-grid');
+  howard.forEach(p => howardGrid.appendChild(makeCard(p, 'howard', 'Howard')));
+
+  const henryGrid = document.getElementById('henry-grid');
+  henry.forEach(p => henryGrid.appendChild(makeCard(p, 'henry', 'Henry')));
+
+  function openModal(src, title) {
+    document.getElementById('modal-iframe').src = src;
+    document.getElementById('modal-title').textContent = title;
+    document.getElementById('modal').classList.add('active');
+  }
+
+  function closeModal(e) {
+    if (!e || e.target === document.getElementById('modal') || e.target.classList.contains('modal-close')) {
+      document.getElementById('modal').classList.remove('active');
+      document.getElementById('modal-iframe').src = '';
+    }
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+
+</body>
+</html>
